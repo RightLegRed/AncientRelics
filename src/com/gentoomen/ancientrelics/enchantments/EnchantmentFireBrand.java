@@ -6,12 +6,14 @@ import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.util.Vector;
 
 import com.gentoomen.ancientrelics.baseobjects.EnchantmentRelic;
 
 public class EnchantmentFireBrand extends EnchantmentRelic{
-
+	
+	
+	
+	
 	@Override
 	public void excute(Event event) {
 		super.excute(event);
