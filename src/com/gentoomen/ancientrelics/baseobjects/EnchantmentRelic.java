@@ -8,6 +8,13 @@ public class EnchantmentRelic {
 	protected long lastUsed = 0;
 	protected ItemRelic parent;
 	
+	public EnchantmentRelic(Integer type, int cooldown, ItemRelic parent) {
+		super();
+		this.type = type;
+		this.cooldown = cooldown;
+		this.parent = parent;
+	}
+
 	public void excute(Event event){
 		if(!canUse()){
 			return;

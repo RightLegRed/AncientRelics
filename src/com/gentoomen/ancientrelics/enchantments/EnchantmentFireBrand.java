@@ -8,12 +8,14 @@ import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 import com.gentoomen.ancientrelics.baseobjects.EnchantmentRelic;
+import com.gentoomen.ancientrelics.baseobjects.ItemRelic;
 
 public class EnchantmentFireBrand extends EnchantmentRelic{
 	
-	
-	
-	
+	public EnchantmentFireBrand(Integer type, int cooldown, ItemRelic parent) {
+		super(type, cooldown, parent);
+	}
+
 	@Override
 	public void excute(Event event) {
 		super.excute(event);
