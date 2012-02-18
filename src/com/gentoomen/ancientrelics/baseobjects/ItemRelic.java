@@ -6,15 +6,17 @@ import java.util.List;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
 public class ItemRelic {
 	
-	private String name;
-	private ItemStack itemType;
-	private List<EnchantmentRelic> enchantments = new ArrayList<EnchantmentRelic>();
-	private Player owner;
-	private boolean degrades = true;
+	protected String name;
+	protected ItemStack itemType;
+	protected List<EnchantmentRelic> enchantments = new ArrayList<EnchantmentRelic>();
+	protected Player owner;
+	protected boolean degrades = true;
 	
 	public ItemRelic(String name, ItemStack itemType, List<EnchantmentRelic> enchantments,
 			Player owner, boolean degrades) {
@@ -64,7 +66,7 @@ public class ItemRelic {
 	/**
 	 * Called when the player attacks, and has an item relic.
 	 */
-	public void onAttack(){
+	public void onAttack(EntityDamageByEntityEvent event){
 		for(EnchantmentRelic e : enchantments){
 			if(e.getType() == 0){
 				
@@ -75,7 +77,7 @@ public class ItemRelic {
 	/**
 	 * Called when the player uses the relic.
 	 */
-	public void onUse(){
+	public void onUse(PlayerInteractEvent event){
 		for(EnchantmentRelic e : enchantments){
 			if(e.getType() == 1){
 				

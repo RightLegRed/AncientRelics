@@ -1,15 +1,24 @@
 package com.gentoomen.ancientrelics.baseobjects;
 
+import org.bukkit.event.Event;
+
 public class EnchantmentRelic {
-	private Integer type;
-	private int cooldown;
-	private long lastUsed = 0;
+	protected Integer type;
+	protected int cooldown;
+	protected long lastUsed = 0;
+	protected ItemRelic parent;
 	
-	public void excute(){
-		if(lastUsed - System.currentTimeMillis() > 5000){
-			
+	public void excute(Event event){
+		if(!canUse()){
+			return;
 		}
-		
+	}
+	
+	public boolean canUse(){
+		if(lastUsed - System.currentTimeMillis() > 5000){
+			return true;
+		}
+		return false;
 	}
 	
 	
