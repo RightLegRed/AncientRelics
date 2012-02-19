@@ -5,9 +5,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.logging.Logger;
 
+import org.bukkit.EntityEffect;
 import org.bukkit.material.MaterialData;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.gentoomen.ancientrelics.baseobjects.TestEnch;
 import com.gentoomen.ancientrelics.util.NBTGrabber;
 import com.gentoomen.ancientrelics.util.Tag;
 
@@ -26,10 +28,12 @@ public class AncientRelics extends JavaPlugin{
 		super.onEnable();
 		log.info("AncientRelics started up");
 		try {
-			getServer().getPlayer("RightLegRed").getItemInHand().setData(new MaterialData(50));
-			Tag tag = Tag.readFrom(new FileInputStream(new File("world/players/RightLegRed.dat")));
-			Tag inventory = tag.findTagByName("Inventory");
-			inventory.print();
+			TestEnch tEnch = new TestEnch(100);
+			getServer().getPlayer("RightLegRed").getItemInHand().addUnsafeEnchantment(tEnch, 1);
+			if(getServer().getPlayer("RightLegRed").getItemInHand().containsEnchantment(tEnch)){
+				System.out.println("true");
+			}
+
 			
 			
 		} catch (IOException e) {
