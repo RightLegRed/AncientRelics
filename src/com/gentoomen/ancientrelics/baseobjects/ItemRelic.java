@@ -1,5 +1,6 @@
 package com.gentoomen.ancientrelics.baseobjects;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,19 +12,21 @@ import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
+import com.gentoomen.ancientrelics.AncientRelics;
 import com.gentoomen.ancientrelics.util.Tag;
 
 public class ItemRelic {
-	
+	private AncientRelics plugin;
 	protected String name;
 	protected ItemStack itemType;
 	protected List<EnchantmentRelic> enchantments = new ArrayList<EnchantmentRelic>();
 	protected Player owner;
 	protected boolean degrades = true;
 	
-	public ItemRelic(String name, ItemStack itemType, List<EnchantmentRelic> enchantments,
+	public ItemRelic(AncientRelics plugin, String name, ItemStack itemType, List<EnchantmentRelic> enchantments,
 			Player owner, boolean degrades) {
 		super();
+		this.plugin = plugin;
 		this.name = name;
 		this.itemType = itemType;
 		this.enchantments = enchantments;
@@ -32,9 +35,10 @@ public class ItemRelic {
 		onCreate();
 	}
 
-	public ItemRelic(String name, ItemStack itemType, List<EnchantmentRelic> enchantments,
+	public ItemRelic(AncientRelics plugin, String name, ItemStack itemType, List<EnchantmentRelic> enchantments,
 			Player owner) {
 		super();
+		this.plugin = plugin;
 		this.name = name;
 		this.itemType = itemType;
 		this.enchantments = enchantments;
@@ -42,16 +46,18 @@ public class ItemRelic {
 		onCreate();
 	}
 
-	public ItemRelic(String name, ItemStack itemType, Player owner) {
+	public ItemRelic(AncientRelics plugin, String name, ItemStack itemType, Player owner) {
 		super();
+		this.plugin = plugin;
 		this.name = name;
 		this.itemType = itemType;
 		this.owner = owner;
 		onCreate();
 	}
 
-	public ItemRelic(String name, ItemStack itemType, Player owner, boolean degrades) {
+	public ItemRelic(AncientRelics plugin, String name, ItemStack itemType, Player owner, boolean degrades) {
 		super();
+		this.plugin = plugin;
 		this.name = name;
 		this.itemType = itemType;
 		this.owner = owner;
@@ -67,37 +73,12 @@ public class ItemRelic {
 	}
 	
 	public void attachToItem(){
-		
-	}
-	
-	/**
-	 * Called when the player attacks, and has an item relic.
-	 */
-	public void onAttack(EntityDamageByEntityEvent event){
-		for(EnchantmentRelic e : enchantments){
-			if(e.getType() == 0){
-				
-			}
+		try {
+			Tag tag = Tag.readFrom(plugin.nbtGrabber.grabPlayerFile(owner));
+			tag.print();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-	}
-	
-	/**
-	 * Called when the player uses the relic.
-	 */
-	public void onUse(PlayerInteractEvent event){
-		for(EnchantmentRelic e : enchantments){
-			if(e.getType() == 1){
-				
-			}
-		}	
-	}
-	
-	public void onArrowLand(ProjectileHitEvent event){
-		for(EnchantmentRelic e : enchantments){
-			if(e.getType() == 2){
-
-			}
-		}	
 	}
 
 	public String getName() {
