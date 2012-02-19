@@ -16,19 +16,6 @@ public class EnchantmentFireBrand extends EnchantmentRelic{
 		super(type, cooldown, parent);
 	}
 
-	@Override
-	public void excute(Event event) {
-		super.excute(event);
-		PlayerInteractEvent playerEvent = (PlayerInteractEvent) event;
-		if(playerEvent.getClickedBlock() != null){
-			World world = playerEvent.getPlayer().getWorld();
-			Block aboveBlock = playerEvent.getPlayer().getWorld().getBlockAt(playerEvent.getClickedBlock().getLocation().add(new Location(world, 0, 1, 0)));
-			if(!(aboveBlock.getType() == Material.AIR)){
-				return;
-			}
-			aboveBlock.setType(Material.FIRE);
-		}
-	}
 	
 	
 }

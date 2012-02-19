@@ -7,8 +7,11 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
+
+import com.gentoomen.ancientrelics.util.Tag;
 
 public class ItemRelic {
 	
@@ -63,6 +66,10 @@ public class ItemRelic {
 		Bukkit.getServer().broadcastMessage(ChatColor.RED + owner.getName() + " has a ossem swords");
 	}
 	
+	public void attachToItem(){
+		
+	}
+	
 	/**
 	 * Called when the player attacks, and has an item relic.
 	 */
@@ -81,6 +88,14 @@ public class ItemRelic {
 		for(EnchantmentRelic e : enchantments){
 			if(e.getType() == 1){
 				
+			}
+		}	
+	}
+	
+	public void onArrowLand(ProjectileHitEvent event){
+		for(EnchantmentRelic e : enchantments){
+			if(e.getType() == 2){
+
 			}
 		}	
 	}

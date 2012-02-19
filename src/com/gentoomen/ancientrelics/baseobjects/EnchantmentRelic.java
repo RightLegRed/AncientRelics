@@ -14,12 +14,6 @@ public class EnchantmentRelic {
 		this.cooldown = cooldown;
 		this.parent = parent;
 	}
-
-	public void excute(Event event){
-		if(!canUse()){
-			return;
-		}
-	}
 	
 	public boolean canUse(){
 		if(lastUsed - System.currentTimeMillis() > 5000){
