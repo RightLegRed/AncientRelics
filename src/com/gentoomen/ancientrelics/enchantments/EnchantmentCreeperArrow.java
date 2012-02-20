@@ -10,17 +10,15 @@ import com.gentoomen.ancientrelics.baseobjects.EnchantmentRelic;
 import com.gentoomen.ancientrelics.baseobjects.ItemRelic;
 
 public class EnchantmentCreeperArrow extends EnchantmentRelic implements Listener{
+	private static Integer id = 100;
 	
-	public EnchantmentCreeperArrow(Integer type, int cooldown, ItemRelic parent) {
-		super(type, cooldown, parent);
+	public EnchantmentCreeperArrow(int cooldown, ItemRelic parent) {
+		super(id, cooldown, parent);
 	}
 	
 	@EventHandler(priority = EventPriority.HIGH)
 	public void onProjectHit(ProjectileHitEvent e){
-		if(canUse()){
-			return;
-		}
 		World world = e.getEntity().getWorld();
-		world.createExplosion(e.getEntity().getLocation(), 2.0f);
+		world.createExplosion(e.getEntity().getLocation(), 25.0f);
 	}
 }
