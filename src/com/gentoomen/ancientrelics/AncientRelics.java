@@ -12,8 +12,8 @@ public class AncientRelics extends JavaPlugin{
 	public Logger log = Logger.getLogger("Minecraft");
 	public NBTGrabber nbtGrabber = new NBTGrabber();
 	
-	private EnchantmentCreeperArrow creeperEnch = new EnchantmentCreeperArrow(0, null);
-	private EnchantmentRideArrow rideEnch = new EnchantmentRideArrow(0, null);
+	private EnchantmentCreeperArrow creeperEnch = new EnchantmentCreeperArrow(0);
+	private EnchantmentRideArrow rideEnch = new EnchantmentRideArrow(0);
 
 	@Override
 	public void onDisable() {

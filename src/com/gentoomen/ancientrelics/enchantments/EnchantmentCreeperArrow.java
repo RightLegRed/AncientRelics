@@ -7,13 +7,12 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.ProjectileHitEvent;
 
 import com.gentoomen.ancientrelics.baseobjects.EnchantmentRelic;
-import com.gentoomen.ancientrelics.baseobjects.ItemRelic;
 
 public class EnchantmentCreeperArrow extends EnchantmentRelic implements Listener{
-	private static Integer id = 100;
+	private static Integer id = 0;
 	
-	public EnchantmentCreeperArrow(int cooldown, ItemRelic parent) {
-		super(id, cooldown, parent);
+	public EnchantmentCreeperArrow(int cooldown) {
+		super(id, cooldown, cooldown);
 	}
 	
 	@EventHandler(priority = EventPriority.HIGH)

@@ -8,19 +8,18 @@ import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.util.Vector;
 
 import com.gentoomen.ancientrelics.baseobjects.EnchantmentRelic;
-import com.gentoomen.ancientrelics.baseobjects.ItemRelic;
 
 public class EnchantmentRideArrow extends EnchantmentRelic implements Listener{
 	private static Integer id = 100;
 	
-	public EnchantmentRideArrow(int cooldown, ItemRelic parent) {
-		super(id, cooldown, parent);
+	public EnchantmentRideArrow(int cooldown) {
+		super(id, cooldown, cooldown);
 	}
 	
 	@EventHandler(priority = EventPriority.HIGH)
 	public void onEntityDamageByEntity(EntityDamageByEntityEvent e){
 		if(e.getCause() == DamageCause.PROJECTILE && e.getEntity() != e.getDamager()){
-			e.getEntity().setVelocity(new Vector(10000, 100000, 0));
+			e.getEntity().setVelocity(new Vector(0, 100000, 0));
 		}
 	}
 }

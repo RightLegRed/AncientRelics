@@ -8,14 +8,15 @@ public class EnchantmentRelic extends Enchantment{
 	protected Integer type;
 	protected int cooldown;
 	protected long lastUsed = 0;
-	protected ItemRelic parent;
+	private int personalID;
 	
-	public EnchantmentRelic(Integer id, int cooldown, ItemRelic parent) {
+	public EnchantmentRelic(Integer id, int cooldown, Integer personalID) {
 		super(id);
 		this.type = type;
 		this.cooldown = cooldown;
-		this.parent = parent;
+		this.personalID = personalID;
 	}
+	
 	
 	public boolean canUse(){
 		if(lastUsed - System.currentTimeMillis() > 5000){
@@ -60,6 +61,8 @@ public class EnchantmentRelic extends Enchantment{
 	@Override
 	public int getStartLevel() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 1;
 	}
+	
+	
 }
