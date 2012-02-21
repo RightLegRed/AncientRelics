@@ -8,13 +8,11 @@ public class EnchantmentRelic extends Enchantment{
 	protected Integer type;
 	protected int cooldown;
 	protected long lastUsed = 0;
-	private int personalID;
 	
-	public EnchantmentRelic(Integer id, int cooldown, Integer personalID) {
+	public EnchantmentRelic(Integer id, int cooldown) {
 		super(id);
 		this.type = type;
 		this.cooldown = cooldown;
-		this.personalID = personalID;
 	}
 	
 	

@@ -13,7 +13,7 @@ public class EnchantmentRideArrow extends EnchantmentRelic implements Listener{
 	private static Integer id = 100;
 	
 	public EnchantmentRideArrow(int cooldown) {
-		super(id, cooldown, cooldown);
+		super(id, cooldown);
 	}
 	
 	@EventHandler(priority = EventPriority.HIGH)
